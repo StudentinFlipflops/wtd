@@ -34,10 +34,7 @@ def add_protocol():
     section_app         = Message(add_protocol_window , text="App to run:" , width=100)
     section_monitor     = Message(add_protocol_window , text="monitor:" , width=100)
     section_workspace   = Message(add_protocol_window , text="workspace:" , width=100)
-    
-    #comment
-    a = 10
-    a+=10
+
     section_entry_app           =Entry(add_protocol_window , width=30 , borderwidth= 2)
     section_entry_monitor       =Entry(add_protocol_window , width=30 , borderwidth= 2)
     section_entry_workspace     =Entry(add_protocol_window , width=30 , borderwidth= 2)
@@ -78,3 +75,13 @@ add_button = Button(root , text="add" , padx=10 , pady=10 , command= lambda: add
 add_button.grid(row=0 , column= 0)
 
 root.mainloop()
+
+#Do this things in specific order 
+
+
+#TODO: move fun "add_protocol" and "add_section" to new file
+#TODO: add button "remove section"
+#TODO: add button "save protocol"
+#TODO: write the simmplest way to write sections
+
+# time: 1 week to 17-08-2023
