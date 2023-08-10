@@ -37,6 +37,7 @@ def add_protocol():
     
     #comment
     a = 10
+    a+=10
     section_entry_app           =Entry(add_protocol_window , width=30 , borderwidth= 2)
     section_entry_monitor       =Entry(add_protocol_window , width=30 , borderwidth= 2)
     section_entry_workspace     =Entry(add_protocol_window , width=30 , borderwidth= 2)
