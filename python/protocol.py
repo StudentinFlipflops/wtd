@@ -1,5 +1,6 @@
 from tkinter import * 
-
+from tkinter import messagebox
+import csv
 
 
 def add_section(app , monitor , workspace , section , window , n ):
@@ -15,14 +16,41 @@ def add_section(app , monitor , workspace , section , window , n ):
         Message(window , text=x[0] , width=100).grid(row = n , column=0)
         Message(window , text=x[1] , width=100).grid(row = n , column=1)
         Message(window , text=x[2] , width=100).grid(row = n , column=2)
-        
-        Button(window , text="Remove section" , command= lambda: print(x[3]) ).grid(row = n , column=3)
         n+=1
 
     app.delete(0 , END)
     monitor.delete(0 , END)
     workspace.delete(0 , END)
     #print(section)
+
+
+    
+
+def save_protocol(list , input, window):
+    
+    if(len(list) == 0):
+        messagebox.showinfo("Sectiond not found","Pleas ensure that you add a section. \nYou cannot save an empty protocol." )
+    
+    else:
+        if(input.get() == ""):
+            messagebox.showinfo("Protocol name not found","Pleas ensure that you type protocol name. \nYou cannot save an protocol withut name." )
+        else:   
+
+            file_name = input.get() +".csv"
+            input.delete(0 , END)
+
+            with open(  file_name ,mode ='w' , newline=""  ) as file:
+                csv_writer = csv.writer(file)
+
+                for row in list:
+                    csv_writer.writerow(row)
+                    window.destroy()
+
+            messagebox.showinfo("Protocol saved","protocol saved successfully." )
+
+
+
+
 
 def add_protocol(root):
 
@@ -48,7 +76,8 @@ def add_protocol(root):
     section_add_button          =Button(add_protocol_window , text="Add section" , command= lambda:
         add_section(section_entry_app , section_entry_monitor , section_entry_workspace , section_list , add_protocol_window , n))
 
-  
+    section_save_button         =Button(add_protocol_window , text="Save protocol" , command= lambda: 
+        save_protocol(section_list , protocol_name_input , add_protocol_window))
 
 
     protocol_name_mess.grid(row=0 , column=0)
@@ -65,4 +94,4 @@ def add_protocol(root):
     section_entry_monitor.grid(row=50 , column=1)
     section_entry_workspace.grid(row=50 , column=2)
     section_add_button.grid(row=50 , column=3)
-    
+    section_save_button.grid(row=51 , column=0)

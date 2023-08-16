@@ -17,8 +17,9 @@ root.mainloop()
 
 
 # *** DONE *** #TODO: move fun "add_protocol" and "add_section" to new file
-#TODO: add button "remove section"
 #TODO: add button "save protocol"
 #TODO: write the simmplest way to write sections
+
+#INFO: there will be no option for "remove section". Once a protocol is created, ot cannot be modified, it can only be deleted.
 
 # time: 1 week to 17-08-2023
